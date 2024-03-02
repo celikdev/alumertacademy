@@ -1,0 +1,25 @@
+import admin from "firebase-admin";
+// import serviceAccount from "./alumertacademy.json";
+
+const serviceAccount = {
+  type: "service_account",
+  project_id: "alumertacademy-537fe",
+  private_key_id: "3ebc9f0843c902cec6751d7cc559b657e1141a13",
+  private_key:
+    "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDOmQcn//3ONUz6\n+cXgok/zZ9ctUGkWs1t8pG1iG+PKw3tWDNGkEAdgdvOUnTq1bFcAz5QX9HTWJbiq\nWjO9kXhqKsgOmeOpzo1TP2TMAvxFtmIYBK6Wdjk4b7KE4JdOvKiFKD91hiohpgvg\n4Rok2RaTSCcDuZ9KEJLV3yY1nABXsIf4W/m3Z/uGPNfNRSbwWM+xgdnrxHO60sV3\ntpyRrFJyHWpY78igUo4NJekrdssIKeboOz/AVFrXCZT8BEY8bLnNsjSBzmetMnNn\nrN/7jJH2GRpAp2WRDbfuLaRrmeWWjuRMyjnCJIFZQn3IPxl5GKuGdbVn/bu2+slS\nrU7xn7P/AgMBAAECggEAI5v8v8g/1usY+alTkgRoA2xCimzxsBf6DOHKeL6V5L0M\n5SgQelbI7reSBGuVUu/5jwo4XGimOsMFsVca0/He722wTdP4iawwb8jddsyM7vcg\nsUMdVJHMCw41lvGfItMhuNHXHkqhuGsGYRxrhS5l1bz5/IpiCkIRDQwJafQZmwNi\n4VRmMKPiIabggKRj34MfuMQ6/+PYCgrcHsZYdnQbmHY5iVjhND+2J4TkCoHt73AW\nUcJJyXjHZ2g3PDOuYzEzHElT5m24LoCGz5ECFuWrIBSuZ6BVocN68WXLwg9FeHRF\nfa1oHYVZ5mjkNo1Sa+1R+4NH5P8K4ysimMNGjBWuAQKBgQD5hiCgc9upCgpgwPQf\nr1eoGB0iFZT/8rXpqobVYcovF0bKpejKbfpnxVwp6KhpmC1xx/O33cHbkAEG2pmW\nei7dp/HrCYS8aGMmbYPvz1LG7Kom2Vd8ahpPmztV1Aad82810rD4hDvvCE+7KaBV\nklUHiCLBf8AGcT/Xyaky13qqaQKBgQDT9bFjTXkKkEyGG29iitFO2pKvCm1HOqFu\nzSF478efFNBqCxX7uTaN0mp7d5yDIPuaEfFU2olphFKOwXD5Nkj1OWmesBepLcSq\nKjWXhIaeqykAioN2hWJwjawGnjcB13sa2h+mhh/h0rKzZxtMZPUAntbdPO8GcjG/\naD+Xw+4OJwKBgDX3Oks5g4J1t3Thhmrr40tpm7Npc4Y/mfRley/fLHku0ZK2ezh8\nvLGAz8QIm5Pq47k+A4n6nhi8dlxjHuCaoFQ0JHAu6NROx1LiUKym7EI1oT8xtmgk\nEnixHA4eAyhaI+1CGiBFiSjTZVsXT6PyOA2e9dVfqco66BHlfYCPdeoxAoGBAKad\nwzR5SQXZyp284UEIOGKRBK9eNerBFvdffslvS28s0GwbjMtUm6K+Xf/yVXDqs304\nT4nRRCVS5Abd3u24E3/ZAsLAT8kodikBhyE1BxGhIFkRiSfY0DoD089b/YeQGHBS\nOIERe+xrURgfm+Dgl4tGUUaWSJq7l4mL7DljxjUPAoGAcq98AJgnk3Y/hRWOW+g3\nJz9rYqg11IuXr1VdjStzXG2zb/Bsh7DgXYZEJMgg23eTNJ4+U82MaHnBMhDAltJk\n/vn5DQ8AulykD9q3LkHCXDoXj0WTzhA+CJFI7x4zsaobrz0sXeL1f3EkSgwfYqQL\n7Aqxw6wW1koyrJlEi4zVooI=\n-----END PRIVATE KEY-----\n",
+  client_email:
+    "firebase-adminsdk-5kb1c@alumertacademy-537fe.iam.gserviceaccount.com",
+  client_id: "117043165365211152254",
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://oauth2.googleapis.com/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
+  client_x509_cert_url:
+    "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-5kb1c%40alumertacademy-537fe.iam.gserviceaccount.com",
+  universe_domain: "googleapis.com",
+};
+
+const adminAcc = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+export default adminAcc;
