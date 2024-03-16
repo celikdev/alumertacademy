@@ -1,4 +1,4 @@
-import { Header, Title } from "../components";
+import { Footer, Header, Title } from "../components";
 import { Container } from "../components/";
 import { useLessonQuery } from "../services/query/lesson";
 
@@ -31,10 +31,9 @@ const Dersler = () => {
                 target="_blank"
                 rel="noreferrer"
                 key={ders._id}
-                className="flex mt-6 p-4 items-start justify-start rounded-lg transition-colors duration-300 gap-4 bg-gray-200 border-2 hover:border-primary"
+                className="flex mt-6 p-4 items-start justify-start rounded-lg transition-colors duration-300 gap-4 bg-gray-100 border-2 border-transparent "
               >
                 <LazyLoadImage
-                  placeholderSrc="https://via.placeholder.com/300"
                   src={ders.imageURL}
                   alt={ders.title}
                   className="object-cover rounded-md w-72"
@@ -48,6 +47,7 @@ const Dersler = () => {
           </div>
         )}
       </Container>
+      <Footer />
     </div>
   );
 };

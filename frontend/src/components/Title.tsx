@@ -1,7 +1,13 @@
-const Title = ({ title }: any) => {
+const Title = ({ title, className }: any) => {
   return (
-    <span className="flex items-center gap-2">
-      <h1 className="text-7xl font-extrabold text-black">{title}</h1>
+    <span className="flex items-center gap-2 w-full">
+      <h1
+        className={`${
+          className ? className : "md:text-7xl text-5xl"
+        } font-extrabold text-black`}
+      >
+        {title}
+      </h1>
     </span>
   );
 };

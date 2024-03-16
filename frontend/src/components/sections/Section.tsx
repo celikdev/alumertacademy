@@ -1,5 +1,4 @@
 import { ComputerIcon, TrustIcon, UserGroupIcon } from "../../assets/icons";
-import Satranc from "../../assets/images/satranc.jpg";
 
 const Online = () => {
   const cardData = [
@@ -24,12 +23,12 @@ const Online = () => {
   ];
   return (
     <div
-      className="bg-[url('assets/images/bg-image.png')] w-full h-[100vh] flex flex-col items-center justify-between
+      className="bg-[url('assets/images/bg-image.png')] w-full flex flex-col items-center justify-between md:py-40 py-10
     bg-cover bg-center bg-no-repeat"
     >
-      <div className=" h-1/2 flex items-end justify-end px-60 w-full">
-        <div className="w-3/5 flex flex-col gap-4">
-          <h1 className="font-extrabold text-6xl text-white drop-shadow-2xl">
+      <div className=" h-1/2 flex items-end justify-center md:justify-end lg:px-60 md:px-20 md:w-full">
+        <div className="w-4/5 md:w-3/5 flex flex-col gap-4">
+          <h1 className="font-extrabold xl:text-5xl lg:text-4xl md:text-5xl text-2xl text-white drop-shadow-2xl">
             Deneyimli Eğitmenler İle Satrançta Başarının Tek Adresi
           </h1>
           <p className="text-white font-semibold">
@@ -42,7 +41,7 @@ const Online = () => {
         </div>
       </div>
       <div>
-        <div className="grid grid-cols-3 container w-2/3 mx-auto items-center justify-center gap-4 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 container w-4/5 md:w-2/3 mx-auto items-center justify-center gap-4 py-10 mt-20">
           {cardData.map((card, index) => (
             <div
               key={index}

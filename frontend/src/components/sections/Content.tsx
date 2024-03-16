@@ -1,15 +1,8 @@
-import { Link } from "react-router-dom";
-import { useLessonQuery } from "../../services/query/lesson";
-import { HashLoader } from "react-spinners";
-
 const Content = () => {
-  const { data, isLoading } = useLessonQuery();
   return (
-    <div className="w-2/3 mx-auto flex flex-col gap-4">
-      <div className="text-center">
-        <h1 className="font-extrabold text-5xl">Derslerimiz</h1>
-      </div>
-      <div className="flex gap-10">
+    <div className="w-2/3 mx-auto flex gap-4 justify-between">
+      {/* <Title title="Derslerimiz" />
+      <div className="flex flex-col md:flex-row gap-10">
         {isLoading ? (
           <div className="w-full flex items-center justify-center">
             <HashLoader color="#2563EB" size={32} />
@@ -39,6 +32,27 @@ const Content = () => {
               </div>
             ))
         )}
+      </div> */}
+      <div className="w-1/2">
+        <img
+          src="
+          https://placehold.co/600x400
+        "
+          alt="derslerImage"
+        />
+      </div>
+      <div className="w-1/2 flex flex-col gap-4">
+        <h1 className="text-5xl font-bold">
+          Evinizin Konforunda Premium Satranç Eğitimi!
+        </h1>
+        <p className="font-semibold text-black/50 text-sm">
+          Evde, işte veya tatilde, yalnızca bir laptop, tablet veya telefon ile
+          derslere katılabilir ve kaliteli satranç eğitiminize ara vermeden
+          devam edebilirsiniz!
+        </p>
+        <button className="border-2 border-primary rounded-lg py-2 text-sm font-semibold transition-colors duration-300 hover:text-white hover:bg-primary">
+          Derslerimize Göz Atın
+        </button>
       </div>
     </div>
   );

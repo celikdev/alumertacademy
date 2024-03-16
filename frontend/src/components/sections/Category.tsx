@@ -2,7 +2,7 @@ import CategoryImage from "../../assets/images/category.png";
 
 const Category = () => {
   return (
-    <div className="w-2/3 mx-auto flex items-center">
+    <div className="w-2/3 mx-auto flex items-center py-8">
       <div className=" flex flex-col gap-4">
         <h1 className="text-primary font-bold text-xs">ALUMERT ACADEMY</h1>
         <h1 className="text-4xl font-bold">
@@ -20,7 +20,7 @@ const Category = () => {
           Hakkımızda
         </button>
       </div>
-      <div className="">
+      <div className="hidden md:flex">
         <img src={CategoryImage} alt="Category" className="scale-90" />
       </div>
     </div>

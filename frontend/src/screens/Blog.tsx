@@ -1,5 +1,5 @@
 import { HashLoader } from "react-spinners";
-import { Container, Header, Title } from "../components";
+import { Container, Footer, Header, Title } from "../components";
 import { useBlogQuery } from "../services/query/blog";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -16,15 +16,27 @@ const Blog = () => {
 
   //TODO: Footer Yapilacak, Responsive Yapilacak, Blog Details Yapilacak, Eğitmenler, Turnuvalar, Kurumsal
   return (
-    <div>
+    <div className="bg-gray-100">
       <Header />
       <Container>
         <Title title="Blog" />
         <p className="font-semibold text-md mt-6">
           Eğitici ve öğretici satranç içeriklerimize göz atın.
         </p>
-        <div className="flex justify-between my-10">
-          <div className="w-3/4">
+        <div className="flex justify-between my-10 flex-col md:flex-row">
+          <div className="rounded-lg w-full flex-col gap-8 flex md:hidden p-4">
+            <div className="w-full bg-white p-4 rounded-lg flex flex-col gap-2">
+              <h1 className="text-sm font-semibold">İçerik Ara</h1>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Ara"
+                className="border-2 rounded-lg outline-none w-full px-4 py-3 border-gray-200 transition-colors duration-300 hover:border-primary focus:border-primary text-sm font-semibold"
+              />
+            </div>
+          </div>
+          <div className="md:w-3/4">
             {isLoading ? (
               <div className="flex items-center justify-center my-8">
                 <HashLoader color="#2563EB" size={32} />
@@ -44,7 +56,7 @@ const Blog = () => {
                     >
                       <Link
                         to={`/blog/${blog._id}`}
-                        className="bg-gray-100 p-8 rounded-lg hover:shadow-lg flex flex-col gap-4 transition-colors duration-300 hover:bg-gray-200"
+                        className="bg-white p-8 rounded-lg hover:shadow-lg flex flex-col gap-4 transition-colors duration-300 hover:bg-gray-200 w-full"
                       >
                         <img
                           src="https://alumertacademy.com.tr/wp-content/uploads/2023/09/satranc%CC%A7-900x500.jpeg"
@@ -60,8 +72,7 @@ const Blog = () => {
                             <div className="flex items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="32"
-                                height="32"
+                                className="w-6 h-6 md:w-8 md:h-8"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 id="user"
@@ -73,22 +84,21 @@ const Blog = () => {
                                   clipRule="evenodd"
                                 ></path>
                               </svg>
-                              <h1 className="font-semibold text-sm">
+                              <h1 className="font-semibold text-xs md:text-sm">
                                 {blog.createdBy}
                               </h1>
                             </div>
                             <div className="flex items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="32"
-                                height="32"
+                                className="w-6 h-6 md:w-8 md:h-8"
                                 viewBox="0 0 24 24"
                                 id="date"
                               >
                                 <path fill="none" d="M0 0h24v24H0V0z"></path>
                                 <path d="M19 4h-1V3c0-.55-.45-1-1-1s-1 .45-1 1v1H8V3c0-.55-.45-1-1-1s-1 .45-1 1v1H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 15c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9h14v10zM7 11h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"></path>
                               </svg>
-                              <h1 className="text-sm font-semibold mt-px">
+                              <h1 className="text-xs md:text-sm font-semibold mt-px">
                                 {getDate(blog.createdAt)}
                               </h1>
                             </div>
@@ -102,23 +112,23 @@ const Blog = () => {
             {data?.data.filter((searched: any) =>
               searched.title.toLowerCase().includes(searchQuery.toLowerCase())
             ).length === 0 && (
-              <p className="font-semibold text-lg text-red-400 text-center">
+              <p className="font-semibold text-sm md:text-lg text-red-400 text-center">
                 Sonuç Bulunamadı
               </p>
             )}
           </div>
-          <div className="rounded-lg w-1/4 my-4 flex flex-col gap-8">
-            <div className="w-full bg-gray-100 p-4 rounded-lg flex flex-col gap-2">
+          <div className="rounded-lg w-1/4 my-4 flex-col gap-8 hidden md:flex">
+            <div className="w-full bg-white p-4 rounded-lg flex flex-col gap-2">
               <h1 className="text-sm font-semibold">İçerik Ara</h1>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Ara"
-                className="border-2 rounded-lg outline-none w-full px-4 py-3 border-transparent transition-colors duration-300 hover:border-primary focus:border-primary text-sm font-semibold"
+                className="border-2 rounded-lg outline-none w-full px-4 py-3 border-gray-200 transition-colors duration-300 hover:border-primary focus:border-primary text-sm font-semibold"
               />
             </div>
-            <div className="w-full bg-gray-100 p-4 rounded-lg">
+            <div className="w-full bg-white p-4 rounded-lg  flex-col">
               <h1 className="font-semibold">Son Eklenenler</h1>
               <div>
                 {isLoading ? (
@@ -149,6 +159,7 @@ const Blog = () => {
           </div>
         </div>
       </Container>
+      <Footer />
     </div>
   );
 };

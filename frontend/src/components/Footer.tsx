@@ -7,7 +7,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="h-96 bg-dark flex flex-col justify-between py-10">
+    <footer className="h-96 bg-dark flex flex-col justify-between py-10 mt-10">
       <div className="container mx-auto flex md:flex-row flex-col justify-around md:pt-10 px-10">
         <div className="flex flex-col gap-4">
           <h1 className="font-extrabold text-2xl text-white">

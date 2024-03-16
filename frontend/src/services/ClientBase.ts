@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const ClientBase = axios.create({
-    baseURL: "http://localhost:5001",
+    baseURL: "http://192.168.1.172:5001",
 })
 
 export default ClientBase;
